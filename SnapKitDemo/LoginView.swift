@@ -226,30 +226,32 @@ class LoginView: UIView {
     }
     
     @objc func connect() {
+        txtPassword.resignFirstResponder()
+        txtEmail.resignFirstResponder()
         if isAnimating {
             return
         }
-        
+
         txtEmail.snp.remakeConstraints { (make) in
             make.top.equalTo(viewTop.snp.bottom).offset(16)
             make.left.equalTo(viewContainer.snp.right)
             make.width.equalTo(txtEmail.snp.width)
             make.height.equalTo(textfieldHeight)
         }
-        
+
         txtPassword.snp.remakeConstraints { (make) in
             make.right.equalTo(viewContainer.snp.left)
             make.top.equalTo(txtEmail.snp.bottom).offset(8.0)
             make.width.equalTo(txtPassword.snp.width)
             make.height.equalTo(textfieldHeight)
         }
-        
+
         activityIndicator.snp.updateConstraints { (make) in
             make.centerY.equalTo(viewContainer)
         }
-        
+
         self.setNeedsLayout()
-        
+
         UIView.animate(withDuration: 0.5, animations: {
             self.layoutIfNeeded()
         }) { (finished) in
@@ -257,7 +259,7 @@ class LoginView: UIView {
                 self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.revertLoginView), userInfo: nil, repeats: false)
             }
         }
-        
+
         isAnimating = true
         
     }
@@ -269,27 +271,27 @@ class LoginView: UIView {
             make.right.equalTo(viewContainer).offset(-8)
             make.height.equalTo(textfieldHeight)
         }
-        
+
         txtPassword.snp.remakeConstraints { (make) in
             make.top.equalTo(txtEmail.snp.bottom).offset(8.0)
             make.left.equalTo(txtEmail)
             make.right.equalTo(txtEmail)
             make.height.equalTo(textfieldHeight)
         }
-        
+
         activityIndicator.snp.updateConstraints { (make) in
             make.centerY.equalTo(viewContainer).offset(-containerViewHeight/2 - 20)
         }
-        
+
         self.setNeedsLayout()
-        
+
         UIView.animate(withDuration: 0.5, animations: {
             self.layoutIfNeeded()
         }) { (finished) in
             if finished {
                 self.timer.invalidate()
                 self.timer = nil
-                
+
                 self.isAnimating = false
             }
         }
@@ -300,7 +302,7 @@ class LoginView: UIView {
         if let userInfo = notification.userInfo as? Dictionary<String, Any> {
             if let keyboardFrameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
                 let keyboardFrame = keyboardFrameValue.cgRectValue
-                
+
                 let containerViewOriginPlusHeight = viewContainer.frame.origin.y + viewContainer.frame.size.height
                 if containerViewOriginPlusHeight > keyboardFrame.origin.y {
                     let overlappedSpace = containerViewOriginPlusHeight - keyboardFrame.origin.y;
@@ -310,7 +312,7 @@ class LoginView: UIView {
                         self.layoutIfNeeded()
                     }
                 }
-                
+
             }
         }
     }
@@ -319,7 +321,7 @@ class LoginView: UIView {
     @objc func handleKeyboardDidHide(notification: Notification) {
         centerYConstraint.update(offset: 0.0)
         self.setNeedsLayout()
-        
+
         UIView.animate(withDuration: 0.4) {
             self.layoutIfNeeded()
         }
