@@ -51,8 +51,8 @@ class LoginView: UIView {
     
     init() {
         super.init(frame: CGRect.zero)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.handleKeyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.handleKeyboardDidHide(notification:)), name: .UIKeyboardDidHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleKeyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleKeyboardDidHide(notification:)), name: UIResponder.keyboardDidHideNotification, object: nil)
         
         setupContainerView()
         setupTitle()
@@ -117,7 +117,7 @@ class LoginView: UIView {
         lblTitle.font = UIFont(name: "Futura-Bold", size: 17.0)
         
         lblTitle.snp.makeConstraints { (make) in
-            make.edges.equalTo(viewTop).inset(UIEdgeInsetsMake(0.0, 16.0, 0.0, 0.0))
+            make.edges.equalTo(viewTop).inset(UIEdgeInsets(top: 0.0, left: 16.0, bottom: 0.0, right: 0.0))
         }
     }
     
@@ -211,7 +211,7 @@ class LoginView: UIView {
     }
     
     func setupActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         viewContainer.addSubview(activityIndicator)
         
         activityIndicator.color = UIColor.orange
@@ -300,7 +300,7 @@ class LoginView: UIView {
     
     @objc func handleKeyboardWillShow(notification: Notification) {
         if let userInfo = notification.userInfo as? Dictionary<String, Any> {
-            if let keyboardFrameValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            if let keyboardFrameValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
                 let keyboardFrame = keyboardFrameValue.cgRectValue
 
                 let containerViewOriginPlusHeight = viewContainer.frame.origin.y + viewContainer.frame.size.height
