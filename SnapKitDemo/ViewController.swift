@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
@@ -18,6 +19,21 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let loginView = LoginView()
+        view.addSubview(loginView)
+        loginView.snp.makeConstraints { (make) in
+//            make.left.equalTo(self.view)
+//            make.top.equalTo(self.view)
+//            make.right.equalTo(self.view)
+//            make.bottom.equalTo(self.view)
+            
+            make.edges.equalTo(self.view)
+        }
     }
 
 
