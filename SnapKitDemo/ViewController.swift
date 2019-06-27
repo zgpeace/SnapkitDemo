@@ -24,14 +24,20 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let loginView = LoginView()
-        view.addSubview(loginView)
-        loginView.snp.makeConstraints { (make) in
-//            make.left.equalTo(self.view)
-//            make.top.equalTo(self.view)
-//            make.right.equalTo(self.view)
-//            make.bottom.equalTo(self.view)
-            
+//        let loginView = LoginView()
+//        view.addSubview(loginView)
+//        loginView.snp.makeConstraints { (make) in
+////            make.left.equalTo(self.view)
+////            make.top.equalTo(self.view)
+////            make.right.equalTo(self.view)
+////            make.bottom.equalTo(self.view)
+//
+//            make.edges.equalTo(self.view)
+//        }
+        
+        let commentView = DynamicHightView()
+        view.addSubview(commentView)
+        commentView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }
     }

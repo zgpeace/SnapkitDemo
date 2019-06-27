@@ -14,6 +14,7 @@
 		C0BCCDD420432795003F1B18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0BCCDD320432795003F1B18 /* Assets.xcassets */; };
 		C0BCCDD720432795003F1B18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BCCDD520432795003F1B18 /* LaunchScreen.storyboard */; };
 		C0BCCDDF204327A5003F1B18 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BCCDDE204327A5003F1B18 /* LoginView.swift */; };
+		E29A8E7822C435310090F12A /* DynamicHightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29A8E7722C435310090F12A /* DynamicHightView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C0BCCDD620432795003F1B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0BCCDD820432795003F1B18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0BCCDDE204327A5003F1B18 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E29A8E7722C435310090F12A /* DynamicHightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHightView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				C0BCCDCC20432795003F1B18 /* AppDelegate.swift */,
 				C0BCCDCE20432795003F1B18 /* ViewController.swift */,
 				C0BCCDDE204327A5003F1B18 /* LoginView.swift */,
+				E29A8E7722C435310090F12A /* DynamicHightView.swift */,
 				C0BCCDD020432795003F1B18 /* Main.storyboard */,
 				C0BCCDD320432795003F1B18 /* Assets.xcassets */,
 				C0BCCDD520432795003F1B18 /* LaunchScreen.storyboard */,
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0BCCDDF204327A5003F1B18 /* LoginView.swift in Sources */,
+				E29A8E7822C435310090F12A /* DynamicHightView.swift in Sources */,
 				C0BCCDCF20432795003F1B18 /* ViewController.swift in Sources */,
 				C0BCCDCD20432795003F1B18 /* AppDelegate.swift in Sources */,
 			);
